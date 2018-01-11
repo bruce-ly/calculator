@@ -1,0 +1,197 @@
+@charset "UTF-8";
+/**
+ * Created by Bruce on 17-4-25.
+ */
+
+table {
+    width: 100%;
+}
+
+form {
+    background: #fff;
+    margin-top: .6rem;
+    padding: 0 1em;
+}
+
+li span {
+    display: inline-block;
+    width: 5em;
+    line-height: 3.6;
+}
+
+.calculator1, .calculator2, .tab_box {
+    max-width: 720px;
+    margin: auto;
+}
+
+.calculator2 {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-end;
+}
+
+.tab_box {
+    font-size: 3.4rem;
+    line-height: 3;
+    text-align: center;
+    color: #e77918;
+    background: #fff;
+}
+
+.tab_box .click {
+    color: #fff;
+    background: #e77918;
+}
+
+.text_box {
+    width: 98%;
+    font-size: 10rem;
+    line-height: 1.4;
+    word-wrap: break-word;
+    text-align: right;
+}
+
+.img_box img {
+    float: left;
+    width: 25%;
+    outline: 1px solid #eee;
+}
+
+.img_box img:nth-child(17) {
+    width: 50%;
+}
+
+.img_box img:hover {
+    filter: brightness(.8);
+}
+
+.nav_box tr td {
+    text-align: center;
+    line-height: 3;
+    font-size: 3.4rem;
+    border-bottom: 2px solid transparent;
+    background: #fff;
+}
+
+.nav_box tr td.click {
+    border-bottom: 2px solid #e77918;
+}
+
+.input1 {
+    width: 54%;
+    height: 2em;
+}
+
+.input2 {
+    width: 54%;
+    height: 2em;
+    color: #f00;
+}
+
+.input3 {
+    width: 76%;
+    height: 2em;
+    color: #666;
+    margin: .6rem 0;
+}
+
+.btn {
+    text-align: center;
+    padding: 1em 0 2em;
+}
+
+.btn button {
+    width: 8em;
+    height: 2em;
+    font-size: 3.4rem;
+    margin: 0 .6rem;
+    background: #e77918;
+    color: #fff;
+    border: none;
+}
+
+.fix_box {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 9;
+    background: rgba(0, 0, 0, .5);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.fix_tab {
+    position: relative;
+    width: 74%;
+    padding-left: 14%;
+    background: #fff;
+    transition: all 1s;
+    margin-right: -100%;
+}
+
+.fix_tab td:first-child {
+    width: 5.2em;
+}
+
+.fix_tab p {
+    width: 6em;
+    font-size: 3.4rem;
+    color: #e77918;
+    margin: 2rem auto;
+}
+
+.dot {
+    width: 1em;
+    vertical-align: middle;
+}
+
+.icon {
+    position: absolute;
+    top: 48%;
+    left: 0;
+    padding: 1rem;
+    font-size: 8rem;
+    border-radius: 50%;
+    color: #e77918;
+    text-align: center;
+}
+
+.red_text {
+    font-size: 2.6rem;
+    color: #f00;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.landscape {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 99;
+    background: #fff;
+    text-align: center;
+    line-height: 5;
+}
+
+@media all and (orientation: portrait) {
+    .landscape {
+        display: none;
+    }
+}
+
+@media all and (orientation: landscape) {
+    .landscape {
+        display: block;
+    }
+}

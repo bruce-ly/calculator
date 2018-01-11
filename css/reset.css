@@ -1,0 +1,56 @@
+@charset "UTF-8";
+/**
+ * Created by Bruce on 16-11-30.
+ */
+
+html, body,
+div, p,
+span, a, img,
+h1, h2, h3, h4, h5, h6,
+ol, ul, li,
+form, label, input, button, textarea, select, option {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    list-style: none;
+    text-decoration: none;
+    vertical-align: baseline;
+
+    color: #333;
+    font-size: 3rem;
+    font-family: Arial, "Microsoft Yahei";
+    background: transparent;
+}
+
+body {
+    line-height: 1;
+    background: #eee;
+}
+
+input[placeholder] {
+    color: #999;
+}
+
+input, select, textarea {
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+button, a {
+    cursor: pointer;
+}
+
+input {
+    padding-left: 8px;
+}
+
+select, option {
+    padding-left: 4px;
+}
+
+textarea {
+    overflow: auto;
+    padding: 8px;
+    resize: none;
+}

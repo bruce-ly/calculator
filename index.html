@@ -1,0 +1,295 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>计算器</title>
+    <link rel="stylesheet" href="css/reset.css"/>
+    <link rel="stylesheet" href="css/index.css"/>
+    <script src="js/phone.js"></script>
+</head>
+<body>
+    <div class="landscape">请使用手机竖屏浏览页面</div>
+    <div class="calculator1">
+        <table class="nav_box" cellspacing="0">
+            <tr id="nav">
+                <td>商业贷款</td>
+                <td>公积金贷款</td>
+                <td>组合型贷款</td>
+            </tr>
+        </table>
+        <form name="calc1">
+            <input id="type" name="type" type="hidden">
+            <ul id="calc1_js_div">
+                <li>
+                    <span>计算方式：</span>
+                    <select onchange="exc_js(this.value);" name="jisuan_radio" class="input2">
+                        <option value="1" selected="selected">按面积，单位计算</option>
+                        <option value="2">按贷款总额计算</option>
+                    </select>
+                </li>
+            </ul>
+            <ul id="calc1_js_div1">
+                <li>
+                    <span>单价：</span>
+                    <input maxlength="8" name="price" class="input1"> 元/平方米
+                </li>
+                <li>
+                    <span>面积：</span>
+                    <input maxlength="8" name="sqm" class="input1"> 平方米
+                </li>
+                <li>
+                    <span>按揭成数：</span>
+                    <select name="anjie" class="input2">
+                        <option value="9">9成</option>
+                        <option value="8">8成</option>
+                        <option value="7" selected="selected">7成</option>
+                        <option value="6">6成</option>
+                        <option value="5">5成</option>
+                        <option value="4">4成</option>
+                        <option value="3">3成</option>
+                        <option value="2">2成</option>
+                    </select>
+                </li>
+            </ul>
+            <ul id="calc1_js_div2">
+                 <li>
+                     <span>贷款总额：</span>
+                     <input maxlength="8" name="daikuan_tota" class="input1"> 元
+                 </li>
+            </ul>
+            <ul id="calc1_zuhe">
+                <li>
+                    <span>商业贷：</span>
+                    <input maxlength="8" name="total_sy" class="input1"> 元
+                </li>
+                <li>
+                    <span>公积金：</span>
+                    <input maxlength="8" name="total_gjj" class="input1"> 元
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <span>按揭年数：</span>
+                    <select name="years" class="input2">
+                        <option value="1">1年（12期）</option>
+                        <option value="2">2年（24期）</option>
+                        <option value="3">3年（36期）</option>
+                        <option value="4">4年（48期）</option>
+                        <option value="5">5年（60期）</option>
+                        <option value="6">6年（72期）</option>
+                        <option value="7">7年（84期）</option>
+                        <option value="8">8年（96期）</option>
+                        <option value="9">9年（108期）</option>
+                        <option value="10">10年（120期）</option>
+                        <option value="11">11年（132期）</option>
+                        <option value="12">12年（144期）</option>
+                        <option value="13">13年（156期）</option>
+                        <option value="14">14年（168期）</option>
+                        <option value="15">15年（180期）</option>
+                        <option value="16">16年（192期）</option>
+                        <option value="17">17年（204期）</option>
+                        <option value="18">18年（216期）</option>
+                        <option value="19">19年（228期）</option>
+                        <option value="20" selected="selected">20年（240期）</option>
+                        <option value="25">25年（300期）</option>
+                        <option value="30">30年（360期）</option>
+                    </select>
+                </li>
+            </ul>
+            <ul id="calc1_js_div3">
+                <li>
+                    <span>基准利率：</span>
+                    <input id="lilv" name="lilv" class="input2" readonly="readonly">
+                </li>
+            </ul>
+            <ul id="calc1_zuhe1">
+                <li>
+                    <span>贷款利率：</span>
+                    <input class="input2" readonly="readonly" value="基准利率">
+                </li>
+                <li>
+                    <span>商业贷：</span>
+                    <input id="lilv1" name="lilv1" class="input2" readonly="readonly">
+                </li>
+                <li>
+                    <span>公积金：</span>
+                    <input id="lilv2" name="lilv2" class="input2" readonly="readonly">
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <span>利率折扣：</span>
+                    <input id="discount" name="discount" maxlength="4" class="input2">
+                </li>
+                <li class="btn">
+                    <button onclick="ext_total(this.form);" type="button">开始计算</button>
+                    <button onclick="formReset(this.form);" type="reset">重新填写</button>
+                </li>
+            </ul>
+            <div id="fix_box" class="fix_box" style="display: none;">
+                <div class="fix_tab">
+                    <div onclick="fnHide();" class="icon">»</div>
+                    <p>查看结果</p>
+                    <table class="js_tab">
+                        <tr>
+                            <td>还款方式：</td>
+                            <td>
+                                <span><img class="dot" src="img/icon1.jpg"> 等额本息 </span>
+                                <span onclick="fnTab(1);"><img class="dot" src="img/icon2.jpg"> 等额本金 </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>房款总额：</td>
+                            <td>
+                                <input class="input3" name="fangkuan_total1" readonly="readonly" type="text"> 元
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>贷款总额：</td>
+                            <td>
+                                <input class="input3" name="daikuan_total1" readonly="readonly" type="text"> 元
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>还款总额：</td>
+                            <td>
+                                <input class="input3" name="all_total1" readonly="readonly" type="text"> 元
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>利息总计：</td>
+                            <td>
+                                <input class="input3" name="accrual1" readonly="readonly" type="text"> 元
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>房款首付：</td>
+                            <td>
+                                <input class="input3" name="money_first1" readonly="readonly" type="text"> 元
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>贷款月数：</td>
+                            <td>
+                                <input class="input3" name="month1" readonly="readonly" type="text"> 月
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>月均还款：</td>
+                            <td>
+                                <input class="input3" name="month_money1" readonly="readonly" type="text"> 元
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>
+                                <input class="input3" style="visibility: hidden;">
+                            </td>
+                        </tr>
+                    </table>
+                    <table class="js_tab" style="display: none;">
+                        <tr>
+                            <td>还款方式：</td>
+                            <td>
+                                <span onclick="fnTab(0);"><img class="dot" src="img/icon2.jpg"> 等额本息 </span>
+                                <span><img class="dot" src="img/icon1.jpg"> 等额本金 </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>房款总额：</td>
+                            <td>
+                                <input class="input3" name="fangkuan_total2" readonly="readonly" type="text"> 元
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>贷款总额：</td>
+                            <td>
+                                <input class="input3" name="daikuan_total2" readonly="readonly" type="text"> 元
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>还款总额：</td>
+                            <td>
+                                <input class="input3" name="all_total2" readonly="readonly" type="text"> 元
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>利息总计：</td>
+                            <td>
+                                <input class="input3" name="accrual2" readonly="readonly" type="text"> 元
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>房款首付：</td>
+                            <td>
+                                <input class="input3" name="money_first2" readonly="readonly" type="text"> 元
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>贷款月数：</td>
+                            <td>
+                                <input class="input3" name="month2" readonly="readonly" type="text"> 月
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>首月还款：</td>
+                            <td>
+                                <input class="input3" name="month_money2" readonly="readonly" type="text"> 元
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>次月递减：</td>
+                            <td>
+                                <input class="input3" name="month_money3" readonly="readonly" type="text"> 元
+                            </td>
+                        </tr>
+                    </table>
+                    <div class="red_text">*以上结果仅供参考</div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="calculator2">
+        <div class="text_box" id="texts">0</div>
+        <div class="img_box">
+            <img onclick="fnCls();" src="img/_01.png" alt=""/>
+            <img onclick="fnMinus();" src="img/_02.png" alt=""/>
+            <img onclick="fnDel();" src="img/_03.png" alt=""/>
+            <img onclick="fnEq('/');" src="img/_04.png" alt=""/>
+            <img onclick="fnText('7');" src="img/_05.png" alt=""/>
+            <img onclick="fnText('8');" src="img/_06.png" alt=""/>
+            <img onclick="fnText('9');" src="img/_07.png" alt=""/>
+            <img onclick="fnEq('*');" src="img/_08.png" alt=""/>
+            <img onclick="fnText('4');" src="img/_09.png" alt=""/>
+            <img onclick="fnText('5');" src="img/_10.png" alt=""/>
+            <img onclick="fnText('6');" src="img/_11.png" alt=""/>
+            <img onclick="fnEq('-');" src="img/_12.png" alt=""/>
+            <img onclick="fnText('1');" src="img/_13.png" alt=""/>
+            <img onclick="fnText('2');" src="img/_14.png" alt=""/>
+            <img onclick="fnText('3');" src="img/_15.png" alt=""/>
+            <img onclick="fnEq('+');" src="img/_16.png" alt=""/>
+            <img onclick="fnText('0');" src="img/_17.png" alt=""/>
+            <img onclick="fnText('.');" src="img/_18.png" alt=""/>
+            <img onclick="fnEq('=');" src="img/_19.png" alt=""/>
+        </div>
+        <table class="tab_box" cellspacing="0">
+            <tr>
+                <td>房贷计算器</td>
+                <td>普通计算器</td>
+            </tr>
+        </table>
+    </div>
+    <table class="tab_box" cellspacing="0" style="position: fixed; right: 0; bottom: 0; left: 0;">
+        <tr id="tab">
+            <td>房贷计算器</td>
+            <td>普通计算器</td>
+        </tr>
+    </table>
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/calculator1.js"></script>
+    <script src="js/calculator2.js"></script>
+</body>
+</html>
